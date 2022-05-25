@@ -36,14 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\TreeSpawner.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\ChangeInventoryUI.cs" />
-     <Compile Include="Assets\Scripts\PlayerCrouch.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TreeBehavior.cs" />
-     <Compile Include="Assets\Scripts\Hotbar.cs" />
+     <Compile Include="Assets\Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\SurfacePopulator.cs" />
      <Compile Include="Assets\Scripts\TreeGrowth.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />

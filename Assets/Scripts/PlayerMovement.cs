@@ -11,10 +11,21 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
-    public Transform Camera;
+    public GameObject playerCam;
+    //public Transform CamPos;
+
+    //public Camera CrouchCamera;
+    //public Camera ProneCamera;
+    
+    public Collider PlayerCollider;
+    public Collider CrouchCollider;
+    public Collider ProneCollider;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     public float CrouchHeight = -1.5f;
+    public bool IsStanding = true;
+    public bool IsCrouched = false;
+     public bool IsProne = false;
 
 
     CharacterController characterController;
@@ -34,12 +45,92 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftControl)&& IsStanding == true)
+        {
+            PlayerCollider.enabled = false;
+            CrouchCollider.enabled = true;
+            ProneCollider.enabled = false;
 
-     
+            Vector3 CamMove = new Vector3(0.0f, -0.55f, 0.0f);
+            playerCam.transform.Translate(CamMove);
 
+            IsStanding = false;
+            IsCrouched = true;
+            IsProne = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsCrouched == true)
+        {
+            Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
+            playerCam.transform.Translate(CamMove);
 
+            IsCrouched = false;
+            IsStanding = true;
+            IsProne = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsProne == true)
+        {
+            Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
+            playerCam.transform.Translate(CamMove);
 
+            IsCrouched = true;
+            IsProne = false;
+            IsStanding = false;
+        }
+       
+        if (Input.GetKeyDown(KeyCode.Z)&& IsStanding == true)
+        {
+            PlayerCollider.enabled = false;
+            CrouchCollider.enabled = false;
+            ProneCollider.enabled = true;
 
+            Vector3 CamMove = new Vector3(0.0f, -1.1f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            IsProne = true;
+            IsCrouched = false;
+            IsStanding = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Z)&& IsCrouched == true)
+        {
+            Vector3 CamMove = new Vector3(0.0f, -0.55f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            IsProne = true;
+            IsCrouched = false;
+            IsStanding = false;
+        }
+          else if (Input.GetKeyDown(KeyCode.Z)&& IsProne == true)
+        {
+            Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+            IsProne = false;
+            IsCrouched = false;
+            IsStanding = true;
+        }
+        
+          
+        if (Input.GetKeyDown(KeyCode.Space)&& IsCrouched == true)
+        {
+            PlayerCollider.enabled = true;
+            CrouchCollider.enabled = false;
+            ProneCollider.enabled = false;
+
+            Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            IsCrouched = false;
+            IsStanding = true;
+            IsProne = false;
+        } 
+        else if (Input.GetKeyDown(KeyCode.Space)&& IsProne == true)
+        {
+            Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+            IsProne = false;
+            IsCrouched = false;
+            IsStanding = true;
+        }
+        
 
 
         // We are grounded, so recalculate move direction based on axes

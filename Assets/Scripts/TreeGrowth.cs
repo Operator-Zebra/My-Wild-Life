@@ -23,9 +23,8 @@ public class TreeGrowth : MonoBehaviour
 
         if (targetTime <= 0.0f)
         {
+            loopnumber++;
             timerEnded();
-            Debug.Log("Timer ended called");
-            loopnumber = loopnumber++;
         }
 
     }
@@ -40,6 +39,7 @@ public class TreeGrowth : MonoBehaviour
         else if (loopnumber == 4) ShowNextStage(4);
         else if (loopnumber == 5) ShowNextStage(5);
         else if (loopnumber == 6) ShowNextStage(6);
+        else Destroy(SpawnedItem);
 
         targetTime = targetTime + resetTime;
     }
