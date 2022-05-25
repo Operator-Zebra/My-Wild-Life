@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 792045589}
   - component: {fileID: 792045588}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Tree Growth Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +536,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866596046
 GameObject:
@@ -700,54 +700,6 @@ Transform:
   - {fileID: 1219449309}
   m_Father: {fileID: 2088954429}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1041856460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041856462}
-  - component: {fileID: 1041856461}
-  m_Layer: 0
-  m_Name: Tree Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1041856461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041856460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63faec25aa89ac48b3290f43e34e232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 5445370165346211393, guid: 31c8c4a80e6ed384daaf18cf347da225, type: 3}
-  objectCount: 50
-  spawnRadius: 20
-  spawnCollisionCheckradius: 1.5
---- !u!4 &1041856462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041856460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.29, y: -0.8951678, z: 35.14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101557607 stripped
 GameObject:
@@ -1198,62 +1150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 169873855}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2050880784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2050880786}
-  - component: {fileID: 2050880785}
-  m_Layer: 0
-  m_Name: TreeSpawner2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2050880785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050880784}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1adec5d3411b547b2f4ee9d650b0cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTime: 5
-  resetTime: 5
-  itemPlacement: {fileID: 2050880784}
-  SpawnedItem: {fileID: 0}
-  TreePrefab:
-  - {fileID: 1672621705615897105, guid: 7864e8ee642d17444b5e042b65261688, type: 3}
-  - {fileID: 393035712455390049, guid: 3ace114a326120a438592ab956c749f7, type: 3}
-  - {fileID: 948724842421851710, guid: 95db2d13471e47649b1f152f582471b1, type: 3}
-  - {fileID: 8558665180514688221, guid: 01c07df9738d5a942aeaead8a736368d, type: 3}
-  - {fileID: 4115270544885337124, guid: 981d1e99014c5dc4b96ac12dff3ca27d, type: 3}
-  - {fileID: 8752797377858327919, guid: 79f0f59f819849547b9295ecaa48c0ac, type: 3}
-  loopnumber: 0
---- !u!4 &2050880786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050880784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.4, y: -37.0519, z: 87.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083958953 stripped
 GameObject:
