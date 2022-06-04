@@ -1,7 +1,9 @@
  using UnityEngine;
  using System.Collections;
  
- public class SurfacePopulator : $$anonymous$$onoBehaviour {
+ public class SurfacePopulator {
+
+     /*
  
      public int numberOfObjects;
      public int currentObjects;
@@ -26,5 +28,5 @@
                  currentObjects += 1;
              }
          }
-     }
+     } */
  }

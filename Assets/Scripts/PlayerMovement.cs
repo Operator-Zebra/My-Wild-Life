@@ -11,12 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
+    public Camera managerCamera;
     public GameObject playerCam;
-    //public Transform CamPos;
-
-    //public Camera CrouchCamera;
-    //public Camera ProneCamera;
-    
     public Collider PlayerCollider;
     public Collider CrouchCollider;
     public Collider ProneCollider;
@@ -25,9 +21,10 @@ public class PlayerMovement : MonoBehaviour
     public float CrouchHeight = -1.5f;
     public bool IsStanding = true;
     public bool IsCrouched = false;
-     public bool IsProne = false;
-
-
+    public bool IsProne = false;
+    public bool HuntMode = true;
+    public bool ManageMode = false;
+    
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -38,14 +35,17 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl)&& IsStanding == true)
+
+        //Crouch Movement
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)&& IsStanding == true && HuntMode == true)
         {
             PlayerCollider.enabled = false;
             CrouchCollider.enabled = true;
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             IsCrouched = true;
             IsProne = false;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsCrouched == true)
+        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsCrouched == true && HuntMode == true)
         {
             Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
             playerCam.transform.Translate(CamMove);
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = true;
             IsProne = false;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsProne == true)
+        else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsProne == true && HuntMode == true)
         {
             Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
             playerCam.transform.Translate(CamMove);
@@ -77,7 +77,9 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = false;
         }
        
-        if (Input.GetKeyDown(KeyCode.Z)&& IsStanding == true)
+        //Prone Movement
+
+        if (Input.GetKeyDown(KeyCode.Z)&& IsStanding == true && HuntMode == true)
         {
             PlayerCollider.enabled = false;
             CrouchCollider.enabled = false;
@@ -90,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             IsCrouched = false;
             IsStanding = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Z)&& IsCrouched == true)
+        else if (Input.GetKeyDown(KeyCode.Z)&& IsCrouched == true && HuntMode == true)
         {
             Vector3 CamMove = new Vector3(0.0f, -0.55f, 0.0f);
             playerCam.transform.Translate(CamMove);
@@ -99,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
             IsCrouched = false;
             IsStanding = false;
         }
-          else if (Input.GetKeyDown(KeyCode.Z)&& IsProne == true)
+          else if (Input.GetKeyDown(KeyCode.Z)&& IsProne == true && HuntMode == true)
         {
             Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
             playerCam.transform.Translate(CamMove);
@@ -108,8 +110,9 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = true;
         }
         
+        //Return to standing from Crouched or Prone
           
-        if (Input.GetKeyDown(KeyCode.Space)&& IsCrouched == true)
+        if (Input.GetKeyDown(KeyCode.Space)&& IsCrouched == true && HuntMode == true)
         {
             PlayerCollider.enabled = true;
             CrouchCollider.enabled = false;
@@ -122,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = true;
             IsProne = false;
         } 
-        else if (Input.GetKeyDown(KeyCode.Space)&& IsProne == true)
+        else if (Input.GetKeyDown(KeyCode.Space)&& IsProne == true && HuntMode == true)
         {
             Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
             playerCam.transform.Translate(CamMove);
@@ -130,6 +133,22 @@ public class PlayerMovement : MonoBehaviour
             IsCrouched = false;
             IsStanding = true;
         }
+
+
+        //RTS vs FPS camera switcher
+
+        if (Input.GetKeyDown(KeyCode.M) && HuntMode == true)
+        {   
+            HuntMode = false;
+            Cursor.visible = true;
+            managerCamera.enabled = true;
+            playerCamera.enabled = false;
+            ManageMode = true;
+
+        }
+
+        
+
         
 
 
@@ -145,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
 
                         
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        if (Input.GetButton("Jump") && canMove && characterController.isGrounded && HuntMode == true)
         {
             moveDirection.y = jumpSpeed;
         }
@@ -157,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
-        if (!characterController.isGrounded)
+        if (!characterController.isGrounded && HuntMode == true)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
@@ -166,12 +185,14 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
 
         // Player and Camera rotation
-        if (canMove)
+        if (canMove && HuntMode == true)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    
     }
+
 }
