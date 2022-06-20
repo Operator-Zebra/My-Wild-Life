@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1278467019156784507}
   - component: {fileID: 2743217119875009246}
   - component: {fileID: 141065307538816532}
-  - component: {fileID: 2364589943016157980}
   m_Layer: 0
   m_Name: BlunderBuss
   m_TagString: Untagged
@@ -86,17 +85,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2364589943016157980
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942694481003601857}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1866062665442783015, guid: 8a4bef374c3ece04b92fc439db4a721e, type: 3}

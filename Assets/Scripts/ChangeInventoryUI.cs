@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class ChangeInventoryUI : MonoBehaviour
 {
+    /*
+    
 
     NavMeshAgent playerAgent;
     void Start()
@@ -37,14 +39,17 @@ public class ChangeInventoryUI : MonoBehaviour
             }
         }
 
+        */
 
         /*
          * void OnTriggerStay(Collider other)
         {
-            if (other.tag == “Player” && Input.GetKeyDown(KeyCode.F));{
+            if (other.tag == ï¿½Playerï¿½ && Input.GetKeyDown(KeyCode.F));{
             //your code
         }
         */
 
-    }
+        
+
+    //}
 }
