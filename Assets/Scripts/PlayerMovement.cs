@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+
     public Camera playerCamera;
     public Camera managerCamera;
     public GameObject playerCam;
@@ -18,12 +19,18 @@ public class PlayerMovement : MonoBehaviour
     public Collider ProneCollider;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
-    public float CrouchHeight = -1.5f;
-    public bool IsStanding = true;
-    public bool IsCrouched = false;
-    public bool IsProne = false;
+
+    //Varriables for Crouch and Prone
+    private bool IsStanding = true;
+    private bool IsCrouched = false;
+    private bool IsProne = false;
     public bool HuntMode = true;
     public bool ManageMode = false;
+
+    //Varriables for Peaking
+    private bool IsPeakingLeft = false;
+    private bool IsPeakingRight = false;
+    private bool PeakIdle = true;
     
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -57,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = false;
             IsCrouched = true;
             IsProne = false;
+
         }
         else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsCrouched == true && HuntMode == true)
         {
@@ -76,7 +84,8 @@ public class PlayerMovement : MonoBehaviour
             IsProne = false;
             IsStanding = false;
         }
-       
+
+        
         //Prone Movement
 
         if (Input.GetKeyDown(KeyCode.Z)&& IsStanding == true && HuntMode == true)
@@ -110,8 +119,12 @@ public class PlayerMovement : MonoBehaviour
             IsStanding = true;
         }
         
-        //Return to standing from Crouched or Prone
-          
+       
+        
+
+      //Return to standing from Crouched or Prone
+
+        
         if (Input.GetKeyDown(KeyCode.Space)&& IsCrouched == true && HuntMode == true)
         {
             PlayerCollider.enabled = true;
@@ -133,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             IsCrouched = false;
             IsStanding = true;
         }
-
+        
 
         //RTS vs FPS camera switcher
 
@@ -146,10 +159,86 @@ public class PlayerMovement : MonoBehaviour
             ManageMode = true;
 
         }
+        else if (Input.GetKeyDown(KeyCode.M) && HuntMode == false)
+        {
+            HuntMode = true;
+            Cursor.visible = false;
+            managerCamera.enabled = false;
+            playerCamera.enabled = true;
+            ManageMode = false;
+        }
 
-        
+        //Lean player left and right
 
-        
+        //Idle to left lean
+        if (Input.GetKeyDown(KeyCode.Q) && PeakIdle == true)
+        {
+            Vector3 CamMove = new Vector3(-0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            playerCam.transform.rotation = new Quaternion(-30,0, 0, 0);
+            
+            IsPeakingLeft = true;
+            IsPeakingRight = false;
+            PeakIdle = false;
+            
+        } 
+        //Idle to right lean
+        else if (Input.GetKeyDown(KeyCode.E) && PeakIdle == true)
+        {
+            Vector3 CamMove = new Vector3(0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+            playerCam.transform.rotation = Quaternion.Euler(new Vector3(0,45,0));
+
+            IsPeakingLeft = false;
+            IsPeakingRight = true;
+            PeakIdle = false;
+        }
+        //Left to Idle lean
+        else if (Input.GetKeyDown(KeyCode.E) && IsPeakingLeft == true)
+        {
+            Vector3 CamMove = new Vector3(0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+            
+            IsPeakingLeft = false;
+            IsPeakingRight = false;
+            PeakIdle = true;
+        }
+        //Left to Idle lean #2
+        else if (Input.GetKeyDown(KeyCode.Q) && IsPeakingLeft == true)
+        {
+            Vector3 CamMove = new Vector3(0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            IsPeakingLeft = false;
+            IsPeakingRight = false;
+            PeakIdle = true;
+        }
+        //Right to Idle lean
+        else if (Input.GetKeyDown(KeyCode.Q) && IsPeakingRight == true)
+        {
+            Vector3 CamMove = new Vector3(-0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+
+            IsPeakingLeft = false;
+            IsPeakingRight = false;
+            PeakIdle = true;
+        }
+        //Right to Idle lean #2
+        else if (Input.GetKeyDown(KeyCode.E) && IsPeakingRight == true)
+        {
+            Vector3 CamMove = new Vector3(-0.5f, 0.0f, 0.0f);
+            playerCam.transform.Translate(CamMove);
+            
+
+            IsPeakingLeft = false;
+            IsPeakingRight = false;
+            PeakIdle = true;
+        }
+
+
+        //I love you. <3 - Trout
+        //I love you too.
 
 
         // We are grounded, so recalculate move direction based on axes

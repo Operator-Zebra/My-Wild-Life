@@ -359,6 +359,7 @@
 "Assets/Scripts/Interactable.cs"
 "Assets/Scripts/InventorySystem.cs"
 "Assets/Scripts/ObjectSpawner.cs"
+"Assets/Scripts/PeakingController.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/RtsCamera.cs"
 "Assets/Scripts/ShippingContainer.cs"
