@@ -50,4 +50,14 @@ public class TreeGrowth : MonoBehaviour
         Destroy(SpawnedItem);
         SpawnedItem = Instantiate(TreePrefab[numOfItem], itemPlacement.transform.position, itemPlacement.transform.rotation, itemPlacement.transform.parent);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        if (other.gameObject.CompareTag("Mower") && loopnumber == 0)
+        {
+             Destroy(itemPlacement);
+             Destroy(SpawnedItem);
+        }
+        
+    }
 }

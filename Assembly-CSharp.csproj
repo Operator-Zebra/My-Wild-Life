@@ -37,6 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\TreeSpawner.cs" />
+     <Compile Include="Assets\Scripts\WeaponController.cs" />
+     <Compile Include="Assets\Scripts\GrassGrowth.cs" />
      <Compile Include="Assets\Scripts\PeakingController.cs" />
      <Compile Include="Assets\Scripts\RtsCamera.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />

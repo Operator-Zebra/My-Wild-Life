@@ -354,6 +354,7 @@
 "Assets/Scripts/CameraShake.cs"
 "Assets/Scripts/ChangeInventoryUI.cs"
 "Assets/Scripts/Currency.cs"
+"Assets/Scripts/GrassGrowth.cs"
 "Assets/Scripts/Gun.cs"
 "Assets/Scripts/GunSettings.cs"
 "Assets/Scripts/Interactable.cs"
@@ -366,6 +367,7 @@
 "Assets/Scripts/TreeBehavior.cs"
 "Assets/Scripts/TreeGrowth.cs"
 "Assets/Scripts/TreeSpawner.cs"
+"Assets/Scripts/WeaponController.cs"
 -langversion:9.0
 
 /deterministic
