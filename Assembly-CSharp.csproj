@@ -36,16 +36,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\TreeSpawner.cs" />
+     <Compile Include="Assets\Scripts\SurfacePopulator.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\GrassGrowth.cs" />
+     <Compile Include="Assets\Scripts\Ui.cs" />
      <Compile Include="Assets\Scripts\PeakingController.cs" />
      <Compile Include="Assets\Scripts\RtsCamera.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\ChangeInventoryUI.cs" />
-     <Compile Include="Assets\Scripts\ShippingContainer.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\DisplayTextOnColide.cs" />
+     <Compile Include="Assets\Scripts\PlayerControler.cs" />
+     <Compile Include="Assets\Scripts\Ladder.cs" />
      <Compile Include="Assets\Scripts\TreeBehavior.cs" />
      <Compile Include="Assets\Scripts\Currency.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
@@ -53,6 +55,7 @@
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\TreeGrowth.cs" />
+     <Compile Include="Assets\Scripts\TerrianHieghtFinder.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawner.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -10,8 +10,7 @@ public class GrassGrowth : MonoBehaviour
     public GameObject SpawnedItem;
     public GameObject[] GrassPrefab;
     public int loopnumber = 0;
-    public GameObject Mower;
-
+    
     void Start()
     {
         SpawnedItem = Instantiate(GrassPrefab[0], itemPlacement.transform.position, itemPlacement.transform.rotation, itemPlacement.transform.parent);
