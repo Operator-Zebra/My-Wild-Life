@@ -7,6 +7,10 @@ TagManager:
   - Mower
   - Ladder
   - Terrain
+  - Weapon
+  - Point A
+  - Point B
+  - Axe
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Weapon
+  - Wildlife
   - 
   - 
   - 

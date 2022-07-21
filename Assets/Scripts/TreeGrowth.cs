@@ -10,6 +10,7 @@ public class TreeGrowth : MonoBehaviour
     public GameObject SpawnedItem;
     public GameObject[] TreePrefab;
     public int loopnumber = 0;
+    public int StumpNumber = 6;
 
     void Start()
     {
@@ -46,7 +47,6 @@ public class TreeGrowth : MonoBehaviour
 
     public void ShowNextStage(int numOfItem)
     {
-        Debug.Log("ShowNextStage happened");
         Destroy(SpawnedItem);
         SpawnedItem = Instantiate(TreePrefab[numOfItem], itemPlacement.transform.position, itemPlacement.transform.rotation, itemPlacement.transform.parent);
     }
@@ -58,6 +58,16 @@ public class TreeGrowth : MonoBehaviour
              Destroy(itemPlacement);
              Destroy(SpawnedItem);
         }
-        
+        if (other.gameObject.CompareTag("Axe") && loopnumber == 0)
+        {
+             Destroy(itemPlacement);
+             Destroy(SpawnedItem);
+        }
+        if (other.gameObject.CompareTag("Axe"))
+        {
+            loopnumber = StumpNumber;
+            Debug.Log("Cut Tree to Stump");
+        }
+     
     }
 }

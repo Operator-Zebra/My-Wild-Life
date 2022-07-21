@@ -7,9 +7,6 @@ public class InventorySystem : MonoBehaviour
     
     public static InventorySystem instance;
     public GameObject itemPlacement;
-    public GameObject itemPlacementCrouch;
-    public GameObject itemPlacementProne;
-
     GameObject newItem;
 
     public GameObject[] toolbarItems;

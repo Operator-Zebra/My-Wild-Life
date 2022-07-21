@@ -20,19 +20,12 @@ public class PlayerControler : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
-    //Varriables for Crouch and Prone
-    private bool IsStanding = true;
-    private bool IsCrouched = false;
-    private bool IsProne = false;
     public bool HuntMode = true;
     public bool ManageMode = false;
     public bool DrivingMode = false;
     public bool LadderMode = false;
 
-    //Varriables for Peaking
-    private bool IsPeakingLeft = false;
-    private bool IsPeakingRight = false;
-    private bool PeakIdle = true;
+   
     
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -56,103 +49,7 @@ public class PlayerControler : MonoBehaviour
 
         if(HuntMode == true)
         {
-            /*
-            //Crouch Movement
-            
-            if (Input.GetKeyDown(KeyCode.LeftControl)&& IsStanding == true)
-            {
-                PlayerCollider.enabled = false;
-                CrouchCollider.enabled = true;
-                ProneCollider.enabled = false;
-
-                Vector3 CamMove = new Vector3(0.0f, -0.55f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsStanding = false;
-                IsCrouched = true;
-                IsProne = false;
-
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsCrouched == true)
-            {
-                Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsCrouched = false;
-                IsStanding = true;
-                IsProne = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftControl)&& IsProne == true)
-            {
-                Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsCrouched = true;
-                IsProne = false;
-                IsStanding = false;
-            }
-
-            
-            //Prone Movement
-
-            if (Input.GetKeyDown(KeyCode.Z)&& IsStanding == true)
-            {
-                PlayerCollider.enabled = false;
-                CrouchCollider.enabled = false;
-                ProneCollider.enabled = true;
-
-                Vector3 CamMove = new Vector3(0.0f, -1.1f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsProne = true;
-                IsCrouched = false;
-                IsStanding = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Z)&& IsCrouched == true)
-            {
-                Vector3 CamMove = new Vector3(0.0f, -0.55f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsProne = true;
-                IsCrouched = false;
-                IsStanding = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Z)&& IsProne == true)
-            {
-                Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-                IsProne = false;
-                IsCrouched = false;
-                IsStanding = true;
-            }
-            
-        //Return to standing from Crouched or Prone
-
-            
-            if (Input.GetKeyDown(KeyCode.Space)&& IsCrouched == true)
-            {
-                PlayerCollider.enabled = true;
-                CrouchCollider.enabled = false;
-                ProneCollider.enabled = false;
-
-                Vector3 CamMove = new Vector3(0.0f, 0.55f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-
-                IsCrouched = false;
-                IsStanding = true;
-                IsProne = false;
-            } 
-            else if (Input.GetKeyDown(KeyCode.Space)&& IsProne == true)
-            {
-                Vector3 CamMove = new Vector3(0.0f, 1.1f, 0.0f);
-                playerCam.transform.Translate(CamMove);
-                IsProne = false;
-                IsCrouched = false;
-                IsStanding = true;
-            }
-            
-            */
-                    /*--------------------------------------------------Ladder Mode---------------------------------------------------------------*/
+            /*--------------------------------------------------Ladder Mode---------------------------------------------------------------*/
 
             /*
             void OnTriggerEnter(Collider col)
