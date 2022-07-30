@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\SurfacePopulator.cs" />
      <Compile Include="Assets\Scripts\GrassGrowth.cs" />
      <Compile Include="Assets\Scripts\Ui.cs" />
+     <Compile Include="Assets\Scripts\GunScript.cs" />
      <Compile Include="Assets\Scripts\PeakingController.cs" />
      <Compile Include="Assets\Scripts\RtsCamera.cs" />
      <Compile Include="Assets\Scripts\DisplayTextOnColide.cs" />
@@ -55,7 +56,6 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\TwoPointMove.cs" />
      <Compile Include="Assets\Scripts\ObjectSpawner.cs" />
-     <Compile Include="Assets\Scripts\GunScript.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

@@ -11,6 +11,7 @@ TagManager:
   - Point A
   - Point B
   - Axe
+  - Bullet
   layers:
   - Default
   - TransparentFX
